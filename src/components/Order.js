@@ -5,6 +5,7 @@ import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
 import Paper from "@mui/material/Paper"
 const Order = (props) => {
+//   add theme and change font size's and color
   return ( 
   <Paper varaiant="outlined" square sx={{marginTop:"28px",padding:"24px 24px 40px 24px"}}>
   <Stack direction="row" flex="1" >
