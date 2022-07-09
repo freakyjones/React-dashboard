@@ -4,6 +4,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { borderRadius } from '@mui/system';
 
 export default function BasicSelect() {
   const [company, setCompany] = React.useState('');
@@ -14,8 +15,24 @@ export default function BasicSelect() {
 
   return (
     <Box sx={{ minWidth: 120,borderRadius:"none",marginLeft:"8px" }} >
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">All</InputLabel>
+      <FormControl fullWidth 
+        sx={{
+           '& .MuiFormControl-root':{
+           },
+         '& .MuiFormLabel-root':{
+             display:"none",
+             top:"-17px",
+             borderRadius:"0px"
+         }
+        }}
+      >
+        <InputLabel id="demo-simple-select-label"
+             sx={{
+            '& .MuiInputLabel-root':{
+               borderRadius:"0px"
+           }
+        }}
+        >All</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -23,13 +40,17 @@ export default function BasicSelect() {
           label="All"
           onChange={handleChange}
           sx={{ 
+             'MuiSelect-root':{
+                 borderRadius:"0px"
+              },
              '& .MuiSelect-select': {
              padding:"0px 14px",
-            borderRadius:"Opx"
+            borderRadius:"0px"
            },
-           '& .MuiInputBase-root':{
+           '&  .MuiInputBase-input':{
              borderRadius:"0px"
-            }
+           }
+           
         }}
         >
           <MenuItem value={`All`}>All</MenuItem>

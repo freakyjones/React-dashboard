@@ -35,19 +35,19 @@ const DateRangePickerHandeler = (props) => {
    let newDate;
    Dates.forEach((date)=>{
        
-       let srtDate = date.startDate;
-       let enDate = date.endDate; 
-       newDate = `${srtDate}-${enDate}`
+       let srtDate = `${date.startDate}`;
+       let enDate = `${date.endDate}`; 
+       newDate = `${srtDate.slice(0,10)}-${enDate.slice(0,10)}`;
     })
     return newDate;
  }
 
   return(
     <>
-    <Box sx={{border:"1px solid black",marginLeft:"8px",cursor:"pointer",padding:"3px 4px"}} component="button" onClick={handleOpen}>
+    <Box sx={{border:"1px solid #DDDDDD",marginLeft:"8px",cursor:"pointer",padding:"3px 4px",background:"#fff"}} component="button" onClick={handleOpen}>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Typography variant="body3" component="p" >{getDate()}</Typography>
-        <CalendarMonthIcon/>
+        <CalendarMonthIcon style={{color:"#666666"}} fontSize="small" />
      </Stack>
     </Box>
     <Modal

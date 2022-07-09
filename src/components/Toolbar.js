@@ -13,12 +13,12 @@ import DateRangePickerHandeler from "./DateRangePickerHandeler";
 const Toolbar = (props) => {
   return <Stack spacing={2} direction="row" sx={{marginTop:"28px"}}>
           <Box sx={{display:"flex",alignItems:"center"}} >
-             <Typography variant="body2" component="h3">Date:</Typography>
+             <Typography variant="body4" component="h3">Date:</Typography>
              <DateRangePickerHandeler/>
            </Box>
           <Box sx={{display:"flex",alignItems:"center"}}>
-             <Typography variant="body2" component="h3">Channel:</Typography>
-             <BasicSelect/>
+             {/* <Typography variant="body4" component="h3">Channel:</Typography>
+             <BasicSelect/> */}
           </Box>
         </Stack>;
 };
