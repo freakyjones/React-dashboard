@@ -8,10 +8,10 @@ const Order = (props) => {
 //   add theme and change font size's and color
   return ( 
   <Paper varaiant="outlined" square sx={{marginTop:"28px",padding:"24px 24px 40px 24px"}}>
-  <Stack direction="row" flex="1" >
+  <Stack direction={{xs:"column", md:"row"}} flex="1">
           <Box flexBasis="100%" >
            <Typography variant="h5" component="h3">268910</Typography>
-            <Typography variant="body2" component="p">All ORDERS</Typography>
+            <Typography variant="body1" component="p">All ORDERS</Typography>
          </Box>
          <Box flexBasis="100%" >
               <Typography variant="h5" component="h3">268910</Typography>

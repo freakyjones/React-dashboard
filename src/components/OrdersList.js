@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box"
 import Order from "./Order";
 
-// use json data insted
+// ToDo : use json data
 const Orders = [1,2,3,4,]
 const OrdersList = (props) => {
 

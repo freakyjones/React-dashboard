@@ -5,28 +5,48 @@ import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Modal from '@mui/material/Modal';
-
+import { addDays } from 'date-fns';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRangePicker } from 'react-date-range';
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: "60vw",
+  height:"60vh", 
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
-  p: 4,
+  p:1
 };
 const DateRangePickerHandeler = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [Dates, setDates] = React.useState([
+  {
+    startDate: new Date(),
+    endDate: addDays(new Date(), 7),
+    key: 'selection'
+  }
+]);
+ const getDate=()=>{
+   let newDate;
+   Dates.forEach((date)=>{
+       
+       let srtDate = date.startDate;
+       let enDate = date.endDate; 
+       newDate = `${srtDate}-${enDate}`
+    })
+    return newDate;
+ }
 
   return(
     <>
     <Box sx={{border:"1px solid black",marginLeft:"8px",cursor:"pointer",padding:"3px 4px"}} component="button" onClick={handleOpen}>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Typography variant="body3" component="p" >1 jan 2022 - 7 jan 2022</Typography>
+        <Typography variant="body3" component="p" >{getDate()}</Typography>
         <CalendarMonthIcon/>
      </Stack>
     </Box>
@@ -37,12 +57,14 @@ const DateRangePickerHandeler = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+         <DateRangePicker
+  onChange={item => setDates([item.selection])}
+  showSelectionPreview={true}
+  moveRangeOnFirstSelection={false}
+  months={2}
+  ranges={Dates}
+  direction="horizontal"
+/>
         </Box>
       </Modal>
 

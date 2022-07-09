@@ -14,7 +14,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
 const Distributions = (props) => {
   return (
      <Grid container mt={3} spacing={1}>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} md={4} lg={4}>
          <Paper sx={{padding:"8px 13px"}} variant="outlined" square >
           <Box sx={{width:"100%" ,height:"300px"}}>
            <Stack direction="row"  alignItems="center" justifyContent="space-between">
@@ -42,7 +42,7 @@ const Distributions = (props) => {
              <Typography variant="body2" component="p">Product Distribution</Typography>
             </Box>
             <Box sx={{width:"100%",height:"90%"}}>
-              <img src={ProductImg} alt="product img" width="100%" style={{marginTop:"35px"}}  />
+              <img src={ProductImg} alt="product img" width="350px" style={{marginTop:"35px"}}  />
             </Box>
           </Box>
         </Paper>
