@@ -49,6 +49,7 @@ const theme= createTheme({
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [routes,setRoutes] = React.useState(Routes)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -57,8 +58,9 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (id) => {
     setAnchorElNav(null);
+    setRoutes(routes.map(route=>(route.id === id ? {...route,isShown:true} : {...route,isShown:false})))
   };
 
   const handleCloseUserMenu = () => {
@@ -100,7 +102,7 @@ const ResponsiveAppBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {Routes.map((route) => (
+              {routes.map((route) => (
                 <MenuItem key={route.id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{route.name}</Typography>
                 </MenuItem>
@@ -126,17 +128,20 @@ const ResponsiveAppBar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },height:"68px" }}>
          
-            {Routes.map((route) => (
-              <Button
+            {routes.map((route) => (
+            <Link to={route.url} style={{textDecoration:"none",color:"#fff"}}>
+              <Box
                 key={route.id}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block',width:"167px" }}
-                variant='text'
+                onClick={()=>{handleCloseNavMenu(route.id)}}
+                sx={{  color: 'white', display: 'flex',alignItems:"center",justifyContent:"center", width:"167px",cursor:"pointer",height:"100%" ,background: route.isShown && "#5D3DC2"}}
+                alignSelf="center"
+                
               >
-               <Link to={route.url} style={{textDecoration:"none",color:"#fff"}}>{route.name}</Link>
-              </Button>
+               {route.name}
+              </Box>
+            </Link>
             ))}
           
           </Box>
