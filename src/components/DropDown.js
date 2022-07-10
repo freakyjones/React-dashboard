@@ -38,7 +38,8 @@ export default function BasicSelect() {
         sx={{
         '& .MuiFormLabel-root':{
           transform:"translate(14px, 1px) scale(1)",
-          borderRadius:"0"
+          borderRadius:"0",
+          fontColor:"#DDDDDD"
         }
         }}
       >

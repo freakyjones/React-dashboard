@@ -21,6 +21,16 @@ const theme= createTheme({
                     color: "#000",
                     fontWeight:700
                  }
+              },
+               {
+                 props:{
+                   variant:"h6"
+                 },
+                 style:{
+                    fontSize:24,
+                    color: "#000000",
+                    fontWeight:400
+                 }
               },{
                  props:{
                    variant:"body1"
@@ -36,7 +46,8 @@ const theme= createTheme({
                  },
                  style:{
                     fontSize:14,
-                    color: "#888888"
+                    color: "#888888",
+                    fontWeight:"400"
                  }
               },{
                   props:{
