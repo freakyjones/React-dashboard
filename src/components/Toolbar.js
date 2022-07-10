@@ -17,8 +17,8 @@ const Toolbar = (props) => {
              <DateRangePickerHandeler/>
            </Box>
           <Box sx={{display:"flex",alignItems:"center"}}>
-             {/* <Typography variant="body4" component="h3">Channel:</Typography>
-             <BasicSelect/> */}
+             <Typography variant="body4" component="h3">Channel:</Typography>
+             <BasicSelect/>
           </Box>
         </Stack>;
 };

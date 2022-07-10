@@ -4,7 +4,26 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { borderRadius } from '@mui/system';
+import {styled} from "@mui/material/styles"
+import InputBase from "@mui/material/InputBase"
+import { borderRadius, padding } from '@mui/system';
+import { Translate } from '@mui/icons-material';
+
+
+const CustomizedInput = styled(InputBase)(({ theme }) => ({
+  '& .MuiInputBase-input': {
+    borderRadius: 0,
+    position: 'relative',
+    backgroundColor: theme.palette.background.paper,
+    border: '1px solid #DDDDDD',
+    fontSize: 14,
+    height:"25px",
+    padding: '0 14px',
+    marginBottm:"5px",
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    // Use the system font instead of the default Roboto font.
+  },
+}));
 
 export default function BasicSelect() {
   const [company, setCompany] = React.useState('');
@@ -14,44 +33,32 @@ export default function BasicSelect() {
   };
 
   return (
-    <Box sx={{ minWidth: 120,borderRadius:"none",marginLeft:"8px" }} >
-      <FormControl fullWidth 
+    <Box sx={{ minWidth: 160,height:25,  borderRadius:"none",marginLeft:"8px" }} >
+      <FormControl fullWidth  
         sx={{
-           '& .MuiFormControl-root':{
-           },
-         '& .MuiFormLabel-root':{
-             display:"none",
-             top:"-17px",
-             borderRadius:"0px"
-         }
+        '& .MuiFormLabel-root':{
+          transform:"translate(14px, 1px) scale(1)",
+          borderRadius:"0"
+        }
         }}
       >
-        <InputLabel id="demo-simple-select-label"
-             sx={{
-            '& .MuiInputLabel-root':{
-               borderRadius:"0px"
-           }
-        }}
-        >All</InputLabel>
+        {company==='' && <InputLabel id="custom-select-label">All</InputLabel>}
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="custom-select-label"
+          id="custom-select"
           value={company}
           label="All"
           onChange={handleChange}
-          sx={{ 
-             'MuiSelect-root':{
-                 borderRadius:"0px"
-              },
-             '& .MuiSelect-select': {
-             padding:"0px 14px",
-            borderRadius:"0px"
-           },
-           '&  .MuiInputBase-input':{
-             borderRadius:"0px"
-           }
+          input={<CustomizedInput/>}
+          sx={{
+           '& .MuiSelect-select':{
+                 borderRadius:"0",
+                 padding:"0 14px" ,
+                 boxSizing:"border-box" 
+            }
            
-        }}
+          }}
+       
         >
           <MenuItem value={`All`}>All</MenuItem>
           <MenuItem value={`Amazon`}>Amazon</MenuItem>
